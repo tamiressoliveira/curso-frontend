@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Curso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+<h1 class="text-2xl font-bold mb-4">Editar Curso</h1>
+<form th:action="@{/cursos/editar}" th:object="${curso}" method="post"
+      class="bg-white p-6 rounded shadow-md max-w-md mx-auto">
+    <input type="hidden" th:field="*{id}"/>
+    <div class="mb-4">
+        <label class="block font-semibold">Nome:</label>
+        <input type="text" th:field="*{name}" class="border rounded w-full p-2"/>
+    </div>
+    <div class="mb-4">
+        <label class="block font-semibold">Categoria:</label>
+        <input type="text" th:field="*{category}" class="border rounded w-full p-2"/>
+    </div>
+    <div class="mb-4">
+        <label class="block font-semibold">Professor:</label>
+        <input type="text" th:field="*{professor}" class="border rounded w-full p-2"/>
+    </div>
+    <button type="submit" class="bg-green-600 hover:bg-green-800 text-white px-4 py-2 rounded">
+        Atualizar
+    </button>
+    <a href="/cursos"
+       class="ml-2 bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded">
+        Cancelar
+    </a>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Cursos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-2xl font-bold mb-4">Cursos</h1>
+    <a href="/cursos/novo" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Novo Curso</a>
+    <table class="table-auto w-full bg-white shadow-md rounded">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="px-4 py-2">Nome</th>
+                <th class="px-4 py-2">Categoria</th>
+                <th class="px-4 py-2">Professor</th>
+                <th class="px-4 py-2">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="curso : ${cursos}" class="border-t">
+                <td class="px-4 py-2" th:text="${curso.name}">Nome</td>
+                <td class="px-4 py-2" th:text="${curso.category}">Categoria</td>
+                <td class="px-4 py-2" th:text="${curso.professor}">Professor</td>
+                <td class="px-4 py-2">
+                    <a th:href="@{'/cursos/' + ${curso.id}}" class="text-blue-600 hover:underline">Ver</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

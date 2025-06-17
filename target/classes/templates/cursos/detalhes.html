@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Curso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+<div class="bg-white rounded shadow-md p-6 max-w-md mx-auto">
+    <h1 class="text-2xl font-bold mb-4" th:text="${curso.name}">Nome do Curso</h1>
+    <p><strong>Categoria:</strong> <span th:text="${curso.category}">Categoria</span></p>
+    <p><strong>Professor:</strong> <span th:text="${curso.professor}">Professor</span></p>
+    <p><strong>Ativo:</strong> <span th:text="${curso.active}">true</span></p>
+    <p><strong>Criado em:</strong> <span th:text="${#temporals.format(curso.createdAt, 'dd/MM/yyyy HH:mm')}">data</span></p>
+    <p><strong>Atualizado em:</strong> <span th:text="${#temporals.format(curso.updatedAt, 'dd/MM/yyyy HH:mm')}">data</span></p>
+
+    <div class="mt-6 space-x-2">
+        <a th:href="@{/cursos/editar/{id}(id=${curso.id})}"
+           class="bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-2 rounded">
+            Editar
+        </a>
+
+        <form th:action="@{/cursos/excluir/{id}(id=${curso.id})}" method="post"
+              onsubmit="return confirm('Confirma exclusão deste curso?');" class="inline">
+            <button type="submit"
+                    class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded">
+                Excluir
+            </button>
+        </form>
+
+        <a href="/cursos"
+           class="bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded">
+            Voltar
+        </a>
+    </div>
+</div>
+</body>
+</html>

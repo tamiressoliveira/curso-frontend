@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Curso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-2xl font-bold mb-4">Novo Curso</h1>
+    <form action="#" th:action="@{/cursos}" method="post" class="bg-white p-6 rounded shadow-md">
+        <div class="mb-4">
+            <label for="name" class="block font-semibold">Nome:</label>
+            <input type="text" id="name" name="name" class="border rounded w-full p-2">
+        </div>
+        <div class="mb-4">
+            <label for="category" class="block font-semibold">Categoria:</label>
+            <input type="text" id="category" name="category" class="border rounded w-full p-2">
+        </div>
+        <div class="mb-4">
+            <label for="professor" class="block font-semibold">Professor:</label>
+            <input type="text" id="professor" name="professor" class="border rounded w-full p-2">
+        </div>
+        <button type="submit" class="bg-green-600 hover:bg-green-800 text-white px-4 py-2 rounded">Salvar</button>
+    </form>
+</body>
+</html>

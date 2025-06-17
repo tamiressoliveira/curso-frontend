@@ -1,0 +1,6 @@
+com\example\curso\CursoApplication.class
+com\example\curso\CursoRepository.class
+com\example\curso\CursoController.class
+com\example\curso\Curso.class
+com\example\curso\controller\HomeController.class
+com\example\curso\SecurityConfig.class
